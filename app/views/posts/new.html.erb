@@ -1,0 +1,13 @@
+<%= form_for @post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br>
+  <%= f.label :content %>
+  <%= f.text_area :content %> <br>
+  <%= f.label :author_id %>
+  <%= f.collection_select :author_id, @authors, :id, :name %> <br>
+  <%= f.label :categories %> <br>
+  <%= f.fields_for :categories do |b| %>
+    <%= b.text_field :name %> <br>
+  <% end %> <br>
+  <%= f.submit %>
+<% end %>
